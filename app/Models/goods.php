@@ -10,4 +10,9 @@ class goods extends Model
     protected $fillable = ['id','name','slug','description','quantity','price','category_id'];
     protected $hidden = ['updated_at','created_at'];
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 }

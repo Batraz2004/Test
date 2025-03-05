@@ -10,4 +10,8 @@ class category extends Model
     protected $fillable = ['id','name','slug','description','sort'];
     protected $hidden = ['updated_at','created_at'];
 
+    public function goods()
+    {
+        return $this->hasMany(goods::class);
+    }
 }
