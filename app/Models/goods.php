@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class goods extends Model
+{
+    protected $table = 'goods';
+    protected $fillable = ['id','name','slug','description','quantity','price','category_id'];
+    protected $hidden = ['updated_at','created_at'];
+
+}
