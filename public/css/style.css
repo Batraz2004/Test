@@ -20,10 +20,10 @@
     font-weight: 600;
     font-size: 15px;
 }
-.main__catalog-wrapper
-{
+.main__catalog-wrapper, .main__product-content{
     margin: 0 auto;
     display:flex;
+    
 }
 
 ul{
@@ -43,7 +43,7 @@ p{
     list-style: non;
     list-style-type: none;
 }
-.Catalog__button{
+.Catalog__button, .product__button{
     appearance: none;
     border: 0;
     border-radius: 5px;
@@ -55,6 +55,22 @@ p{
     margin:25px 45px 0px 45px;
 }
 
+.product__button{
+    margin:25px 45px 0px 5px;
+    
+}
+
+textarea{
+    resize: none;
+}
+input, textarea{
+    background: #466c9e;
+    font-weight: 400;
+    color: bisque;
+}
+.product__button{
+    margin:25px 45px 0px 45px
+}
 .Product__inner{
     display: flex;
 }
@@ -70,7 +86,7 @@ p{
     flex-direction:column;
     padding-bottom:15px;
 }
-.main__catalog-content-title{
+.main__catalog-content-title .main__product-content-title{
     font-weight: 400;
     font-size: 18px;
 }

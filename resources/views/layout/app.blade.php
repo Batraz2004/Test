@@ -11,7 +11,7 @@
 </head>
 <body>
     <main>
-        @yield('content')    
+        @yield('content')
     <main/>
     <script src="/js/app.js"></script>
 </body>

@@ -5,6 +5,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GoodsController;
+
 
 Route::get('/', [IndexController::class,'index'])->name('home');
 
@@ -23,5 +25,9 @@ Route::middleware("auth")->group(function(){
 });
 
 Route::get('/category/get',[CategoryController::class,'get'])->name('category');
-Route::get('/show/category',[CategoryController::class,'show'])->name('categoryShow');
+
+Route::get('goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
+Route::post('goods/edit',[GoodsController::class,'goodsEditShow'])->name('goodsEdit');
+
+
 
