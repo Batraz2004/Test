@@ -32,7 +32,7 @@ class AuthController extends Controller
 
         
         return redirect()
-            ->route('loginShow')
+            ->route('login')
             ->withErrors('Неверный логин или пароль');
     }
 
@@ -44,13 +44,14 @@ class AuthController extends Controller
         $user->name = $request->name;
         $user->password = $password;
         $user->save();
-        return redirect()->route('loginShow');
+        return redirect()->route('login');
     }
 
     public function logout() {
         Auth::logout();
+
         return redirect()
-            ->route('loginShow')
+            ->route('login')
             ->with('success', 'Вы вышли из личного кабинета');
     }
 }

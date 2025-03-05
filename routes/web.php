@@ -9,11 +9,11 @@ Route::get('/', [IndexController::class,'index'])->name('home');
 
 //prefix auth
 
-Route::post('/login',[AuthController::class,'login'])->name('login');
-Route::post('/registr',[AuthController::class,'registr'])->name('registr');
+Route::post('/login',[AuthController::class,'login'])->name('login_process');
+Route::post('/registr',[AuthController::class,'registr'])->name('registr_process');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-Route::get('/show/login',[AuthController::class,'loginShow'])->name('loginShow');
-Route::get('/show/registr',[AuthController::class,'registrShow'])->name('registrShow');
+Route::get('/show/login',[AuthController::class,'loginShow'])->name('login');
+Route::get('/show/registr',[AuthController::class,'registrShow'])->name('registr');
 
 Route::middleware("auth")->group(function(){
     Route::get('/test',function(){

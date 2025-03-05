@@ -2,7 +2,7 @@
 @section('title','регистрация')
 
 @section('content')
-<form action="{{route("registr")}}" method="post">
+<form action="{{route("registr_process")}}" method="post">
     @csrf
 <div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
     <div class="bg-white w-96 shadow-xl rounded p-5">
@@ -17,7 +17,7 @@
             @error('password')
             @enderror
             <div>
-                <a href="{{ route("loginShow")}} " class="font-medium text-blue-900 hover:bg-blue-300 rounded-md p-2">Есть аккаунт?</a>
+                <a href="{{ route("login")}} " class="font-medium text-blue-900 hover:bg-blue-300 rounded-md p-2">Есть аккаунт?</a>
             </div>
             <button type="submit" class="text-center w-full bg-blue-900 rounded-md text-white py-3 font-medium">Зарегистрироваться</button>
     </div>
