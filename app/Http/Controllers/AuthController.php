@@ -32,7 +32,7 @@ class AuthController extends Controller
 
         
         return redirect()
-            ->route('showLogin')
+            ->route('loginShow')
             ->withErrors('Неверный логин или пароль');
     }
 

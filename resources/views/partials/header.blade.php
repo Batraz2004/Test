@@ -13,6 +13,9 @@
             <li class="navbar__list-item" style="margin-right:5px">
                 <a href="{{route("loginShow")}}" class="navbar__auth">Войти</a>
             </li>
+            <li class="navbar__list-item" style="margin-right:5px">
+                <a href="{{route("logout")}}" class="navbar__auth">Выход</a>
+            </li>
         </ul>
         </div> 
 </nav>
