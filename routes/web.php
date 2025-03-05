@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 
 Route::get('/', [IndexController::class,'index'])->name('home');
 
@@ -21,11 +22,4 @@ Route::middleware("auth")->group(function(){
     });
 });
 
-// Route::middleware("quest")->group(function(){
-
-// });
-//prefix category
-
-//prefix cart
-
-//prefix orders
+Route::get('/show/category',[CategoryController::class,'get']);

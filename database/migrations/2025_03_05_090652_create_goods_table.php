@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('goods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->text('description');
-            $table->integer('quantity');
+            $table->integer('count');
             $table->decimal('price',8,2);
             $table->foreignId('category_id')->constrained('category');
             $table->timestamps();
