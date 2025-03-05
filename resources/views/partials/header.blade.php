@@ -7,7 +7,7 @@
             </li>
 
             <li class="navbar__list-item" style="margin-right:5px">
-                <a href="" class="navbar__auth">Категории</a>
+                <a href="{{route("categoryShow")}}" class="navbar__auth">Категории</a>
             </li>
 
             <li class="navbar__list-item" style="margin-right:5px">

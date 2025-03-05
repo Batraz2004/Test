@@ -22,4 +22,6 @@ Route::middleware("auth")->group(function(){
     });
 });
 
-Route::get('/show/category',[CategoryController::class,'get']);
+Route::get('/category/get',[CategoryController::class,'get'])->name('category');
+Route::get('/show/category',[CategoryController::class,'show'])->name('categoryShow');
+

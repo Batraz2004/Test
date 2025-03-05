@@ -9,7 +9,15 @@ class CategoryController extends Controller
 {
     public function get(Request $req)
     {
-        $categories = Category::with('goods')->get();
-        return response()->json(['data'=>$categories],200);
+        $categories = Category::with('goods')
+                    ->get()
+                    ->toArray();
+   
+        return view('category.list',compact('categories'));
+    }
+
+    public function show()
+    {
+        return view('category.list');
     }
 }
