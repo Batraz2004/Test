@@ -10,25 +10,27 @@
                     @foreach($categories as $category)
                     <div class ="main__catalog-content-product product"> 
                         <h3 class="main__catalog-content-title"> {{$category['name']}} товар </h3>
-                            @foreach($category['goods'] as $product)
-                                <Form class="product__form" name="product-form" method="POST"> 
-                                    <div class="product__inner">
-                                        <ul class="product__list" style="list-style:none;">
-                                            <li class="product__list-item product__name"><p class="product_list-item-text">{{$product['name']}}</p></li>
-                                            <li class="product__list-item product__descr"><p class="product_list-item-text">описание:{{$product['description']}}</p></li>
-                                            <li class="product__list-item product__price"><p class="product_list-item-text">Цена:{{$product['price']}}</p></li>
-                                        </ul>
-                                        <input type="hidden" name="goodsId" value="{{$product['id']}}">
-                                        <input type="hidden" name="goodsName" value="{{$product['name']}}">
-                                        <input type="hidden" name="goodsPrice" value="{{$product['price']}}">
-                                        <input type="hidden" name="goodsCount" value="{{$product['count']}}">
-                                    </div>
-                                    <div class="button__pannel">
-                                        <button type="submit" class="catalog__button" name="edit-id" value=""><p>редактировать</p></button>
-                                        <button type="submit" class="catalog__button" name="add-id" value=""><p>Добавить в корзину</p></button>
-                                    </div>
-                                </Form>
-                            @endforeach
+                            <div class="main__catalog-content-produc__inner">
+                                @foreach($category['goods'] as $product)
+                                    <Form class="product__form" name="product-form" method="POST"> 
+                                        <div class="product__inner">
+                                            <ul class="product__list" style="list-style:none;">
+                                                <li class="product__list-item product__name"><p class="product_list-item-text">{{$product['name']}}</p></li>
+                                                <li class="product__list-item product__descr"><p class="product_list-item-text">описание:{{$product['description']}}</p></li>
+                                                <li class="product__list-item product__price"><p class="product_list-item-text">Цена:{{$product['price']}}</p></li>
+                                            </ul>
+                                            <input type="hidden" name="goodsId" value="{{$product['id']}}">
+                                            <input type="hidden" name="goodsName" value="{{$product['name']}}">
+                                            <input type="hidden" name="goodsPrice" value="{{$product['price']}}">
+                                            <input type="hidden" name="goodsCount" value="{{$product['count']}}">
+                                        </div>
+                                        <div class="button__pannel">
+                                            <button type="submit" class="catalog__button" name="edit-id" value=""><p>редактировать</p></button>
+                                            <button type="submit" class="catalog__button" name="add-id" value=""><p>Добавить в корзину</p></button>
+                                        </div>
+                                    </Form>
+                                @endforeach
+                            </div>
                     </div>
                     @endforeach
                 </div>

@@ -18,6 +18,7 @@
 .product__form{
     max-width:540px; 
     margin-bottom: 50px;
+    margin-right: 50px;
     background: #41a573;
     overflow: hidden;
 }
@@ -60,11 +61,6 @@ p{
     margin:0 auto;
 }
 
-.product__button{
-    margin:25px 45px 0px 5px;
-    
-}
-
 textarea{
     resize: none;
 }
@@ -75,9 +71,6 @@ input, textarea{
 }
 .product__button{
     margin:25px 45px 0px 45px
-}
-.product__inner{
-    display: flex;
 }
 .product__list{
     margin-bottom:30px;
@@ -95,10 +88,26 @@ input, textarea{
 .catalog__button{
     margin-top: 15px;
 }
+
+.main__catalog-content-product{
+    display: flex;
+    
+    justify-content: space-around;
+}
+
 .main__catalog-content-title .main__product-content-title{
     font-weight: 400;
     font-size: 18px;
 }
 .main__catalog-content-title{
-    margin-bottom:15px;
+    margin-bottom:153px;
+}
+.main__catalog-wrapper, .main__catalog-content-produc__inner{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.main__catalog-content-produc__inner{
+   margin-left:50px;
+   margin-top:50px;
 }

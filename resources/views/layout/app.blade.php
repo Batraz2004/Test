@@ -10,8 +10,8 @@
     <link href="https://unpkg.com/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <main>
-        <div clas="container">
+    <main> 
+        <div class="container">
             @yield('content')
         </div>
     </main>

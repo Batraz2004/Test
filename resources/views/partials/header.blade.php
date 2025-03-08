@@ -11,7 +11,7 @@
             </li>
 
             <li class="navbar__list-item" style="margin-left:15px">
-                <a href="{{route("goodsEditShow")}}" class="navbar__auth">Добавить Продукт</a>
+                <a href="{{route("goodsCreateShow")}}" class="navbar__auth">Добавить Продукт</a>
             </li>
 
             <li class="navbar__list-item" style="margin-left:15px">
