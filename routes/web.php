@@ -29,5 +29,9 @@ Route::get('/category/get',[CategoryController::class,'get'])->name('category');
 Route::get('/goods/create/show',[GoodsController::class,'goodsCreateShow'])->name('goodsCreateShow');
 Route::post('/goods/create',[GoodsController::class,'goodsCreate'])->name('goodsCreate');
 
+Route::get('/goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
+Route::post('/goods/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
+
+
 
 

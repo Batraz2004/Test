@@ -7,6 +7,27 @@ use App\Models\Goods;
 
 class GoodsController extends Controller
 {
+    public function goodsCreateShow()
+    {
+        return view("goods.createForm");
+    }
+
+    public function goodsCreate(Request $request)
+    {
+        if(!isset($request->goodID))
+            $good = new Goods;
+        else
+            $good = Goods::whete('id',$request->goodID)->first();
+        $good->name = $request->name;
+        $good->price = $request->price;
+        $good->count = $request->count;
+        $good->description = $request->description;
+        $good->category_id = $request->category_id;
+        $good->save();
+
+        return redirect()->route('category');
+    }
+
     public function goodsEditShow()
     {
         return view("goods.editForm");
@@ -14,13 +35,23 @@ class GoodsController extends Controller
 
     public function goodsEdit(Request $request)
     {
-        $good = new Goods;
-        $good->name = $request->name;
-        $good->price = $request->price;
-        $good->count = $request->count;
-        $good->description = $request->description;
-        $good->category_id = $request->category_id;
-        $good->save();
-        return redirect()->route('category');
+        $goodId = $request->goodsId;
+      
+        switch($request->submit)
+        {
+            case "add-cart-id":
+                break;
+            case "edit-id":
+                return view("goods.createForm",["goodId" => $goodId]);
+                break;
+            case "delete-id":
+                $good = Goods::where('id',$goodId)->delete();
+                return redirect()->route('category');
+                break;
+            default:
+                return redirect()->route('category');
+                break;
+        }
     }
+
 }
