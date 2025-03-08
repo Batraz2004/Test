@@ -11,8 +11,10 @@
 </head>
 <body>
     <main>
-        @yield('content')
-    <main/>
+        <div clas="container">
+            @yield('content')
+        </div>
+    </main>
     <script src="/js/app.js"></script>
 </body>
 </html>
