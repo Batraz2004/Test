@@ -26,8 +26,8 @@ Route::middleware("auth")->group(function(){
 
 Route::get('/category/get',[CategoryController::class,'get'])->name('category');
 
-Route::get('goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
-Route::post('goods/edit',[GoodsController::class,'goodsEditShow'])->name('goodsEdit');
+Route::get('/goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
+Route::post('/goods/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
 
 
 

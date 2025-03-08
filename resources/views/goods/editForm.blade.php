@@ -8,16 +8,18 @@
         <div class="container">
             <div class="main__product-content">
                 <h3 class="main__product-content-title"> Добавление товара </h3>
-                    <Form class="Product" name="Product-form" method="POST" action={{route("goodsEdit")}}> 
+                    <Form class="Product" name="Product-form" method="POST" action="{{route("goodsEdit")}}">
                     @csrf   
-                    <div class="Product__inner Product_creater" style="    resize: none; " >
+                    <div class="Product__inner Product_creater" style=" resize: none; " >
                     
                             <input type ="text" name="name" placeholder="название">
                             <input type ="number" step="0.01" name="price" placeholder="цена">
                             <input type ="number" name="count" placeholder="количество">
-                            <input type ="number" name="categoryId" value="" placeholder="id категории">
+                            <input type ="number" name="category_id" value="" placeholder="id категории">
                             <!--<input type="text" name="description" placeholder="описание товара">-->
-                            <textarea class="product__description" placeholder="описание" rows="8" cols="25" name="description" style="margin-top:10px; resize:none;"></textarea>
+                            <input type ="text" name="description" placeholder="описание">
+                            <!--<textarea form="Product-form" class="product__description" placeholder="описание" rows="8" cols="25" id="description" name = "product_description" style="margin-top:10px; resize:none;"></textarea>
+                            -->
                         </div>
                         <button type="submit" class="product__button" name="add-id" value=""><p>Создать</p></button>
                     </Form>

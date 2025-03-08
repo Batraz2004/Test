@@ -16,8 +16,8 @@ class CategoryController extends Controller
         return view('category.list',compact('categories'));
     }
 
-    public function show()
-    {
-        return view('category.list');
-    }
+    // public function show()
+    // {
+    //     return view('category.list');
+    // }
 }
