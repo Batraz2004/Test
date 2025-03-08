@@ -12,9 +12,9 @@
                     @csrf   
                     <div class="product__creater-form__inner product__creater" style=" resize: none; " >
                         @isset($goodId)
-                            <input type="hidden" name="id" placeholder="" value="{{ $goodId }}">
+                            <input type="hidden" name="goodId" placeholder="" value="{{ $goodId }}">
                         @else
-                            <input type="hidden" name="id" placeholder="" value="">
+                            <input type="hidden" name="goodId" placeholder="" value="">
                         @endisset
                         <input type ="text" name="name" placeholder="название">
                         <input type ="number" step="0.01" name="price" placeholder="цена">

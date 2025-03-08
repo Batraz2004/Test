@@ -14,10 +14,10 @@ class GoodsController extends Controller
 
     public function goodsCreate(Request $request)
     {
-        if(!isset($request->goodID))
+        if(!isset($request->goodId))
             $good = new Goods;
         else
-            $good = Goods::whete('id',$request->goodID)->first();
+            $good = Goods::find($request->goodId);
         $good->name = $request->name;
         $good->price = $request->price;
         $good->count = $request->count;
@@ -36,7 +36,7 @@ class GoodsController extends Controller
     public function goodsEdit(Request $request)
     {
         $goodId = $request->goodsId;
-      
+        print_r($goodId);
         switch($request->submit)
         {
             case "add-cart-id":

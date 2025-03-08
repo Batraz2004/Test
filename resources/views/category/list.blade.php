@@ -27,6 +27,7 @@
                                         </div>
                                         <div class="button__pannel">
                                             <button type="submit" class="catalog__button" name="submit" value="edit-id"><p>редактировать</p></button>
+                                            <button type="submit" class="catalog__button" name="submit" value="read-id"><p>подробнее</p></button>
                                             <button type="submit" class="catalog__button" name="submit" value="add-cart-id"><p>Добавить в корзину</p></button>
                                             <button type="submit" class="catalog__button" name="submit" value="delete-id"><p>удалить</p></button>
                                         </div>
