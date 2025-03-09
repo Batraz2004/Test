@@ -33,7 +33,8 @@ Route::post('/goods/create',[GoodsController::class,'goodsCreate'])->name('goods
 Route::get('/goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
 Route::post('/goods/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
 
-Route::get('/cart/get/show',[CartController::class,'getListShow'])->name('cartListShow');
+Route::get('/cart/get/show',[CartController::class,'cartGetShow'])->name('cartGetShow');
+Route::post('/cart/add',[CartController::class,'addToCart'])->name('cartAdd');
 Route::post('/cart/edit',[CartController::class,'cartEdit'])->name('cartEdit');
 
 

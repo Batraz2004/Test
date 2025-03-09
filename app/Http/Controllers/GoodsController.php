@@ -41,22 +41,6 @@ class GoodsController extends Controller
 
         switch($request->submit)
         {
-            case "add-cart-id":
-                $userId = Auth::id();
-                $good = Goods::find($goodId);
-
-                $cart = new Cart();
-                $cart->user_id = $userId;
-                $cart->goods_id = $good->id;
-                $cart->name = $good->name;
-                $cart->description = $good->description;
-                $cart->price = $good->price;
-                $cart->quantity += isset($request->quantity) ? $request->quantity : 1;
-                $cart->total_price = $good->price * $cart->quantity;
-     
-                $cart->save();
-                return redirect()->route('category');
-                break;
             case "detail-id":
                 $good = Goods::find($goodId)->toArray();
                 return view("goods.detail",compact('good'));

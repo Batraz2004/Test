@@ -9,7 +9,7 @@ use App\Models\Goods;
 
 class CartController extends Controller
 {
-    public function getListShow()
+    public function cartGetShow()
     {
         $userId = Auth::id();
         $cartItems = Cart::where('active',true)
@@ -20,28 +20,29 @@ class CartController extends Controller
         return view('cart.list',compact('cartItems'));
     }
 
+    public function addToCart(Request $request)
+    {
+        $userId = Auth::id();
+        $good = Goods::find($goodId);
+
+        $cart = new Cart();
+        $cart->user_id = $userId;
+        $cart->goods_id = $good->id;
+        $cart->name = $good->name;
+        $cart->description = $good->description;
+        $cart->price = $good->price;
+        $cart->quantity += isset($request->quantity) ? $request->quantity : 1;
+        $cart->total_price = $good->price * $cart->quantity;
+        $cart->save();
+        return redirect()->route('cartGetShow');
+    }
+
     public function cartEdit(Request $request)
     {
         $itemId = $request->itemId;
 
         switch($request->submit)
         {
-            case "complete-order":
-                // $userId = Auth::id();
-                // $good = Goods::find($goodId);
-
-                // $cart = new Cart();
-                // $cart->user_id = $userId;
-                // $cart->goods_id = $good->id;
-                // $cart->name = $good->name;
-                // $cart->description = $good->description;
-                // $cart->price = $good->price;
-                // $cart->quantity += isset($request->quantity) ? $request->quantity : 1;
-                // $cart->total_price = $good->price * $cart->quantity;
-     
-                // $cart->save();
-                // return redirect()->route('category');
-                break;
             case "detail-id":
                     $good = Goods::find($request->goodsId)->toArray();
                     return view("goods.detail",compact('good'));
@@ -51,7 +52,7 @@ class CartController extends Controller
                 break;
             case "delete-id":
                 Cart::where('id',$itemId)->delete();
-                return redirect()->route('cartListShow');
+                return redirect()->route('cartGetShow');
                 break;
             default:
                 return redirect()->route('category');

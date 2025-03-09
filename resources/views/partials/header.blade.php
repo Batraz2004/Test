@@ -7,7 +7,7 @@
             </li>
 
             <li class="navbar__list-item" style="margin-left:15px">
-                <a href="{{route("cartListShow")}}" class="navbar__item-link">Корзина</a>
+                <a href="{{route("cartGetShow")}}" class="navbar__item-link">Корзина</a>
             </li>
 
             <li class="navbar__list-item" style="margin-left:15px">
