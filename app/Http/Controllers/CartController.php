@@ -48,8 +48,8 @@ class CartController extends Controller
 
     public function cartEdit(Request $request)
     {
-        $itemId = $request->itemId;
-
+        $itemId = $request->id;
+        
         switch($request->submit)
         {
             case "detail-id":

@@ -29,23 +29,25 @@ Route::middleware("auth")->group(function(){
 
 Route::get('/category/get',[CategoryController::class,'get'])->name('category');
 
-Route::get('/goods/create/show',[GoodsController::class,'goodsCreateShow'])->name('goodsCreateShow');
-Route::post('/goods/create',[GoodsController::class,'goodsCreate'])->name('goodsCreate');
+Route::prefix('/goods')->group(function(){
+    Route::get('/create/show',[GoodsController::class,'goodsCreateShow'])->name('goodsCreateShow');
+    Route::post('/create',[GoodsController::class,'goodsCreate'])->name('goodsCreate');
+    Route::get('/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
+    Route::post('/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
+});
 
-Route::get('/goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
-Route::post('/goods/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
+Route::prefix('/cart')->group(function(){
+    Route::get('/get/show',[CartController::class,'cartGetShow'])->name('cartGetShow');
+    Route::post('/add',[CartController::class,'addToCart'])->name('cartAdd');
+    Route::post('/edit',[CartController::class,'cartEdit'])->name('cartEdit');
+});
 
-Route::get('/cart/get/show',[CartController::class,'cartGetShow'])->name('cartGetShow');
-Route::post('/cart/add',[CartController::class,'addToCart'])->name('cartAdd');
-Route::post('/cart/edit',[CartController::class,'cartEdit'])->name('cartEdit');
-
-Route::post('/order/complete-by-id',[OrdersController::class,'completeById'])->name('orderCompleteById');
-Route::get('/order/get',[OrdersController::class,'orderGetShow'])->name('orderGetShow');
-Route::post('/order/edit',[OrdersController::class,'orderItemEdit'])->name('orderItemEdit');
-Route::post('/order/delete',[OrdersController::class,'orderItemDelete'])->name('orderItemDelete');
-
-
-//complete all
+Route::prefix('/order')->group(function(){
+    Route::post('/complete-by-id',[OrdersController::class,'completeById'])->name('orderCompleteById');
+    Route::get('/get',[OrdersController::class,'orderGetShow'])->name('orderGetShow');
+    Route::post('/edit',[OrdersController::class,'orderItemEdit'])->name('orderItemEdit');
+    Route::post('/delete',[OrdersController::class,'orderItemDelete'])->name('orderItemDelete');
+});
 
 
 
