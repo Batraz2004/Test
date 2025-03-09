@@ -20,7 +20,7 @@
                                                 <li class="product__list-item product__price"><p class="product_list-item-text">кол-во:{{$item['quantity']}}</p></li>
                                             </ul>
                                     </div>
-                                    <Form class="" name="product-form" method="POST" action="{{route("cartEdit")}}"> 
+                                    <Form class="" name="product-form" method="POST" action="{{route("orderItemEdit")}}"> 
                                         @csrf  
                                         
                                         <div class="product__form-inner">
@@ -29,9 +29,25 @@
                                             <input type="hidden" name="name" value="{{$item['name']}}">
                                             <input type="hidden" name="price" value="{{$item['price']}}">
                                             <input type="hidden" name="quantity" value="{{$item['quantity']}}">
+                                            <!--<input type="text" name="status" value="{{$item['status']}}">-->
+                                            
+                                            <select name="status" for="status" class="select__statuses">
+                                            @foreach($statuses as $status)
+                                                <option value="{{ $status }}">{{ $status }}</option>
+                                            @endforeach
+                                            </select>
                                         </div>
                                         <div class="button__pannel">
-                                            <button type="submit" class="catalog__button" name="submit" value="delete-id"><p>отменить</p></button>
+                                            <button type="submit" class="catalog__button" name="submit" value="edit-id"><p>сохранить</p></button>
+                                        </div>
+                                    </Form>
+                                    <Form class="" name="product-form" method="POST" action=""> 
+                                        @csrf  
+                                        <div class="product__form-inner">
+                                            <input type="hidden" name="id" value="{{$item['id']}}">
+                                        </div>
+                                        <div class="button__pannel">
+                                            <button type="submit" class="catalog__button" name="submit" value="delete-id"><p>удалить</p></button>
                                         </div>
                                     </Form>
                                 </div>

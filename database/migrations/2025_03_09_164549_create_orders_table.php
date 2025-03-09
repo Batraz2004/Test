@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->decimal('price',8,2);
             $table->decimal('total_price',8,2);
-            $table->enum('status', ['in_proccess', 'cancelled','accepted']);
+            $table->enum('status', ['in_process', 'cancelled','accepted'])->default('in_process');;
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('goods_id')->constrained('goods');
             $table->string('user_name');

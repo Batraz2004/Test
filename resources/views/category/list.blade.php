@@ -17,7 +17,8 @@
                                             <ul class="product__list" style="list-style:none;">
                                                 <li class="product__list-item product__name"><p class="product_list-item-text">{{$product['name']}}</p></li>
                                                 <li class="product__list-item product__descr"><p class="product_list-item-text">описание:{{$product['description']}}</p></li>
-                                                <li class="product__list-item product__price"><p class="product_list-item-text">Цена:{{$product['price']}}</p></li>
+                                                <li class="product__list-item product__price"><p class="product_list-item-text">цена:{{$product['price']}}</p></li>
+                                                <li class="product__list-item product__price"><p class="product_list-item-text">в наличии:{{$product['count']}}</p></li>
                                             </ul>
                                     </div>
                                     <Form class="" name="product-form" method="POST" action="{{route("goodsEdit")}}"> 

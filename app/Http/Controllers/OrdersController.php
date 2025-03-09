@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Orders;
 use App\Models\Goods;
 use App\Models\Cart;
-
+use App\Enums\OrderStatuses;
 
 class OrdersController extends Controller
 {
@@ -35,18 +35,42 @@ class OrdersController extends Controller
             $order->save();
             $good->save();
             $cartItem = Cart::where('id',$request->id)->delete();
-            return redirect()->route('cartGetShow');
+            return redirect()->route('orderGetShow');
         }
         return redirect()->route('cartGetShow');
         
     }
+
     public function orderGetShow()
     {
         $userId = Auth::id();
+        
         $orderItems = Orders::Where('user_id',$userId)
             ->get()
             ->toArray();
 
-        return view('orders.list',compact('orderItems'));
+        $statuses = [OrderStatuses::INPROCESS->value,
+            OrderStatuses::CANCELLED->value,
+            OrderStatuses::ACCEPTED->value];
+
+        return view('orders.list',compact('orderItems','statuses'));
+    }
+
+    public function orderItemEdit(Request $request)
+    {
+        $orderItem = Orders::where('id',$request->id)
+            ->update([
+                'status' => $request->status,
+            ]);
+        
+        return redirect()->route('orderGetShow');
+    }
+
+    public function deleteById(Request $request)
+    {
+        $orderItem = Orders::where('id',$request->id)
+            ->delete();
+        
+        return view('orders.list',compact('orderItems','statuses'));
     }
 }

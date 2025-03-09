@@ -112,3 +112,14 @@ input, textarea{
    margin-left:50px;
    margin-top:50px;
 }
+.button__pannel, .product__form-inner{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+.select__statuses{
+    width:50%;
+    text-align: center;
+    margin:0 auto;
+}
