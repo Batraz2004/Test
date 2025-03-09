@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Goods;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
+use App\Actions\Goods\Create;
+use App\Actions\Goods\GetDetail;
+use App\Actions\Goods\Delete;
+
 
 class GoodsController extends Controller
 {
@@ -16,17 +20,8 @@ class GoodsController extends Controller
 
     public function goodsCreate(Request $request)
     {
-        if(!isset($request->goodId))
-            $good = new Goods;
-        else
-            $good = Goods::find($request->goodId);
-        $good->name = $request->name;
-        $good->price = $request->price;
-        $good->count = $request->count;
-        $good->description = $request->description;
-        $good->category_id = $request->category_id;
-        $good->save();
-
+        $goodCreate = new Create;
+        $goodCreate($request);
         return redirect()->route('category');
     }
 
@@ -38,22 +33,19 @@ class GoodsController extends Controller
     public function goodsEdit(Request $request)
     {
         $goodId = $request->goodsId;
-
         switch($request->submit)
         {
             case "detail-id":
-                $good = Goods::where('id',$request->goodsId)
-                    ->with('category')
-                    ->get()
-                    ->toArray()[0];
-
+                $goodDetail = new GetDetail;
+                $good = $goodDetail($request);
                 return view("goods.detail",compact('good'));
                 break;
             case "edit-id":
                 return view("goods.createForm",["goodId" => $goodId]);
                 break;
             case "delete-id":
-                $good = Goods::where('id',$goodId)->delete();
+                $goodDel = new Delete;
+                $goodDel($goodId);
                 return redirect()->route('category');
                 break;
             default:
