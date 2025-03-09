@@ -22,8 +22,9 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
+
         $userId = Auth::id();
-        $good = Goods::find($goodId);
+        $good = Goods::find($request->goodsId);
 
         $cart = new Cart();
         $cart->user_id = $userId;

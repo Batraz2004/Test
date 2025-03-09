@@ -18,6 +18,8 @@
                                                 <li class="product__list-item product__name"><p class="product_list-item-text">{{$item['name']}}</p></li>
                                                 <li class="product__list-item product__descr"><p class="product_list-item-text">описание:{{$item['description']}}</p></li>
                                                 <li class="product__list-item product__price"><p class="product_list-item-text">Цена:{{$item['price']}}</p></li>
+                                                <li class="product__list-item product__price"><p class="product_list-item-text">кол-во:{{$item['quantity']}}</p></li>
+
                                             </ul>
                                             <input type="hidden" name="itemId" value="{{$item['id']}}">
                                             <input type="hidden" name="goodsId" value="{{$item['goods_id']}}">
@@ -26,7 +28,7 @@
                                             <input type="hidden" name="itemCount" value="{{$item['quantity']}}">
                                         </div>
                                         <div class="button__pannel">
-                                            <button type="submit" class="catalog__button" name="submit" value="add-cart-id"><p>формить заказ</p></button>
+                                            <button type="submit" class="catalog__button" name="submit" value="complete-order-id"><p>оформить заказ</p></button>
                                             <button type="submit" class="catalog__button" name="submit" value="detail-id"><p>подробнее</p></button>
                                             <button type="submit" class="catalog__button" name="submit" value="delete-id"><p>удалить</p></button>
                                         </div>

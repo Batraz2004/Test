@@ -41,6 +41,7 @@
                                             <input type="hidden" name="goodsName" value="{{$product['name']}}">
                                             <input type="hidden" name="goodsPrice" value="{{$product['price']}}">
                                             <input type="hidden" name="goodsCount" value="{{$product['count']}}">
+                                            <input type="number" name="quantity" value="" placeholder="количество" style="width:100%;">
                                         </div>
                                         <div class="button__pannel">
                                             <button type="submit" class="catalog__button" name="submit" value="add-cart-id"><p>Добавить в корзину</p></button>
