@@ -42,6 +42,7 @@ Route::post('/cart/edit',[CartController::class,'cartEdit'])->name('cartEdit');
 Route::post('/order/complete-by-id',[OrdersController::class,'completeById'])->name('orderCompleteById');
 Route::get('/order/get',[OrdersController::class,'orderGetShow'])->name('orderGetShow');
 Route::post('/order/edit',[OrdersController::class,'orderItemEdit'])->name('orderItemEdit');
+Route::post('/order/delete',[OrdersController::class,'orderItemDelete'])->name('orderItemDelete');
 
 
 //complete all

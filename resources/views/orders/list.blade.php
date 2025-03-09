@@ -41,7 +41,7 @@
                                             <button type="submit" class="catalog__button" name="submit" value="edit-id"><p>сохранить</p></button>
                                         </div>
                                     </Form>
-                                    <Form class="" name="product-form" method="POST" action=""> 
+                                    <Form class="" name="product-form" method="POST" action="{{route("orderItemDelete")}}"> 
                                         @csrf  
                                         <div class="product__form-inner">
                                             <input type="hidden" name="id" value="{{$item['id']}}">

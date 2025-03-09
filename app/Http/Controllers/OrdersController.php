@@ -66,11 +66,11 @@ class OrdersController extends Controller
         return redirect()->route('orderGetShow');
     }
 
-    public function deleteById(Request $request)
+    public function orderItemDelete(Request $request)
     {
         $orderItem = Orders::where('id',$request->id)
             ->delete();
         
-        return view('orders.list',compact('orderItems','statuses'));
+        return redirect()->route('orderGetShow');
     }
 }
