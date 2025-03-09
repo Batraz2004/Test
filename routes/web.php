@@ -7,6 +7,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrdersController;
+
 
 
 Route::get('/', [IndexController::class,'index'])->name('home');
@@ -37,6 +39,9 @@ Route::get('/cart/get/show',[CartController::class,'cartGetShow'])->name('cartGe
 Route::post('/cart/add',[CartController::class,'addToCart'])->name('cartAdd');
 Route::post('/cart/edit',[CartController::class,'cartEdit'])->name('cartEdit');
 
+Route::post('/order/complete-by-id',[OrdersController::class,'completeById'])->name('orderCompleteById');
+//get orders
+//complete all
 
 
 

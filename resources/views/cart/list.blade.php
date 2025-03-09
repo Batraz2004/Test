@@ -21,14 +21,15 @@
 
                                             </ul>
                                     </div>
-                                    <Form class="" name="product-form" method="POST" action="{{route("cartEdit")}}"> 
+                                    <Form class="" name="product-form" method="POST" action="{{route("orderCompleteById")}}"> 
                                         @csrf 
                                         <div class="product__form-inner">
-                                            <input type="hidden" name="itemId" value="{{$item['id']}}">
+                                            <input type="hidden" name="id" value="{{$item['id']}}">
                                             <input type="hidden" name="goodsId" value="{{$item['goods_id']}}">
-                                            <input type="hidden" name="itemName" value="{{$item['name']}}">
-                                            <input type="hidden" name="itemPrice" value="{{$item['price']}}">
-                                            <input type="hidden" name="itemCount" value="{{$item['quantity']}}">
+                                            <input type="hidden" name="name" value="{{$item['name']}}">
+                                            <input type="hidden" name="price" value="{{$item['price']}}">
+                                            <input type="hidden" name="quantity" value="{{$item['quantity']}}">
+                                            <input type="hidden" name="description" value="{{$item['description']}}">
                                         </div>
                                         <div class="button__pannel">
                                             <button type="submit" class="catalog__button" name="submit" value="complete-order-id"><p>оформить заказ</p></button>
@@ -38,11 +39,11 @@
                                         @csrf  
                                         
                                         <div class="product__form-inner">
-                                            <input type="hidden" name="itemId" value="{{$item['id']}}">
+                                            <input type="hidden" name="id" value="{{$item['id']}}">
                                             <input type="hidden" name="goodsId" value="{{$item['goods_id']}}">
-                                            <input type="hidden" name="itemName" value="{{$item['name']}}">
-                                            <input type="hidden" name="itemPrice" value="{{$item['price']}}">
-                                            <input type="hidden" name="itemCount" value="{{$item['quantity']}}">
+                                            <input type="hidden" name="name" value="{{$item['name']}}">
+                                            <input type="hidden" name="price" value="{{$item['price']}}">
+                                            <input type="hidden" name="quantity" value="{{$item['quantity']}}">
                                         </div>
                                         <div class="button__pannel">
                                             <button type="submit" class="catalog__button" name="submit" value="detail-id"><p>подробнее</p></button>
