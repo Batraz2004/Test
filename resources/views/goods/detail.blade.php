@@ -10,6 +10,8 @@
                 <li class="product__list-item product__name"><p class="product_list-item-text">{{$good['name']}}</p></li>
                 <li class="product__list-item product__descr"><p class="product_list-item-text">описание:{{$good['description']}}</p></li>
                 <li class="product__list-item product__price"><p class="product_list-item-text">Цена:{{$good['price']}}</p></li>
+                <li class="product__list-item product__count"><p class="product_list-item-text">в наличии:{{$good['count']}}</p></li>
+                <li class="product__list-item product__count"><p class="product_list-item-text">категория:{{$good['category']['name']}}</p></li>
             </ul>
         </div>
     </section>

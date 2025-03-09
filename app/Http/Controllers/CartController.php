@@ -53,9 +53,13 @@ class CartController extends Controller
         switch($request->submit)
         {
             case "detail-id":
-                    $good = Goods::find($request->goodsId)->toArray();
-                    return view("goods.detail",compact('good'));
-                    break;
+                $good = Goods::where('id',$request->goodsId)
+                    ->with('category')
+                    ->get()
+                    ->toArray()[0];
+
+                return view("goods.detail",compact('good'));
+                break;
             case "edit-id":
                 return view("goods.createForm",["goodId" => $goodId]);
                 break;

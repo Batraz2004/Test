@@ -42,9 +42,13 @@ class GoodsController extends Controller
         switch($request->submit)
         {
             case "detail-id":
-                $good = Goods::find($goodId)->toArray();
+                $good = Goods::where('id',$request->goodsId)
+                    ->with('category')
+                    ->get()
+                    ->toArray()[0];
+
                 return view("goods.detail",compact('good'));
-                    break;
+                break;
             case "edit-id":
                 return view("goods.createForm",["goodId" => $goodId]);
                 break;
