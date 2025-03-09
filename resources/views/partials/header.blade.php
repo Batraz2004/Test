@@ -9,7 +9,9 @@
             <li class="navbar__list-item" style="margin-left:15px">
                 <a href="{{route("cartGetShow")}}" class="navbar__item-link">Корзина</a>
             </li>
-
+            <li class="navbar__list-item" style="margin-left:15px">
+                <a href="{{route("orderGetShow")}}" class="navbar__item-link">Заказы</a>
+            </li>
             <li class="navbar__list-item" style="margin-left:15px">
                 <a href="{{route("category")}}" class="navbar__item-link">Категории</a>
             </li>

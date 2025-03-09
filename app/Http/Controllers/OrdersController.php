@@ -32,8 +32,18 @@ class OrdersController extends Controller
             $order->save();
             $good->save();
             $cartItem = Cart::where('id',$request->id)->delete();
+            return redirect()->route('cartGetShow');
         }
+        return redirect()->route('home');
         
-        
+    }
+    public function orderGetShow()
+    {
+        $userId = Auth::id();
+        $orderItems = Orders::Where('user_id',$userId)
+            ->get()
+            ->toArray();
+
+        return view('orders.list',compact('orderItems'));
     }
 }

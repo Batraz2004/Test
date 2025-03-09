@@ -26,11 +26,12 @@
     font-weight: 600;
     font-size: 15px;
 }
+/*
 .main__catalog-wrapper, .main__product-content{
     margin: 0 auto;
     display:flex;
     
-}
+}*/
 
 ul{
     list-style: non;
