@@ -43,7 +43,7 @@ class GoodsController extends Controller
                 break;
             case "detail-id":
                 $good = Goods::find($goodId)->toArray();
-                return view("goods.detail",["good"=>$good]);
+                return view("goods.detail",compact('good'));
                     break;
             case "edit-id":
                 return view("goods.createForm",["goodId" => $goodId]);
