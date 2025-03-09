@@ -22,17 +22,16 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-
         $userId = Auth::id();
         $good = Goods::find($request->goodsId);
-
+        
         $cart = new Cart();
         $cart->user_id = $userId;
         $cart->goods_id = $good->id;
         $cart->name = $good->name;
         $cart->description = $good->description;
         $cart->price = $good->price;
-        $cart->quantity += isset($request->quantity) ? $request->quantity : 1;
+        $cart->quantity += isset($request->quantity) ? $request->quantity > 0 ?$request->quantity : 1 : 1;
         $cart->total_price = $good->price * $cart->quantity;
         $cart->save();
         return redirect()->route('cartGetShow');
