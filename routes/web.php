@@ -10,10 +10,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrdersController;
 
 
-
 Route::get('/', [IndexController::class,'index'])->name('home');
-
-//prefix auth
 
 Route::post('/login',[AuthController::class,'login'])->name('login_process');
 Route::post('/registr',[AuthController::class,'registr'])->name('registr_process');
