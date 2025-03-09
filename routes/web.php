@@ -34,6 +34,8 @@ Route::get('/goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('g
 Route::post('/goods/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
 
 Route::get('/cart/get/show',[CartController::class,'getListShow'])->name('cartListShow');
+Route::post('/cart/edit',[CartController::class,'cartEdit'])->name('cartEdit');
+
 
 
 
