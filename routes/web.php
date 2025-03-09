@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GoodsController;
+use App\Http\Controllers\CartController;
 
 
 Route::get('/', [IndexController::class,'index'])->name('home');
@@ -31,6 +32,8 @@ Route::post('/goods/create',[GoodsController::class,'goodsCreate'])->name('goods
 
 Route::get('/goods/edit/show',[GoodsController::class,'goodsEditShow'])->name('goodsEditShow');
 Route::post('/goods/edit',[GoodsController::class,'goodsEdit'])->name('goodsEdit');
+
+Route::get('/cart/get/show',[CartController::class,'getListShow'])->name('cartListShow');
 
 
 
