@@ -36,11 +36,15 @@ class GoodsController extends Controller
     public function goodsEdit(Request $request)
     {
         $goodId = $request->goodsId;
-        print_r($goodId);
+
         switch($request->submit)
         {
             case "add-cart-id":
                 break;
+            case "detail-id":
+                $good = Goods::find($goodId)->toArray();
+                return view("goods.detail",["good"=>$good]);
+                    break;
             case "edit-id":
                 return view("goods.createForm",["goodId" => $goodId]);
                 break;
