@@ -25,16 +25,25 @@ class CartController extends Controller
         $userId = Auth::id();
         $good = Goods::find($request->goodsId);
         
-        $cart = new Cart();
-        $cart->user_id = $userId;
-        $cart->goods_id = $good->id;
-        $cart->name = $good->name;
-        $cart->description = $good->description;
-        $cart->price = $good->price;
-        $cart->quantity += isset($request->quantity) ? $request->quantity > 0 ?$request->quantity : 1 : 1;
-        $cart->total_price = $good->price * $cart->quantity;
-        $cart->save();
-        return redirect()->route('cartGetShow');
+        if(!is_null($good) && count($good->toArray())>0)
+        {
+            $cart = Cart::where('goods_Id',$good->id)
+                        ->where('user_Id',$userId)->first();//проверим может добавляли ли мы раньше товаров с тем же id
+
+            if(empty($cart))
+                $cart = new Cart;
+
+            $cart->user_id = $userId;
+            $cart->goods_id = $good->id;
+            $cart->name = $good->name;
+            $cart->description = $good->description;
+            $cart->price = $good->price;
+            $cart->quantity += isset($request->quantity) ? $request->quantity > 0 ? $request->quantity : 1 : 1;
+            $cart->total_price = $good->price * $cart->quantity;
+            $cart->save();
+            return redirect()->route('cartGetShow');
+        }
+        return redirect()->route('category');
     }
 
     public function cartEdit(Request $request)
