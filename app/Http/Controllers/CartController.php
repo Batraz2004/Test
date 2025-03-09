@@ -11,8 +11,8 @@ class CartController extends Controller
     public function getListShow()
     {
         $userId = Auth::id();
-        $cartItems = Cart//::where('active',true)
-            ::Where('user_id',$userId)
+        $cartItems = Cart::where('active',true)
+            ->Where('user_id',$userId)
             ->get()
             ->toArray();
 

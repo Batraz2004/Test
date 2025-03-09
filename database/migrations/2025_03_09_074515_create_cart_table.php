@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->foreignId('goods_id')->constrained('goods')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
