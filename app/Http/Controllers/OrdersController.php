@@ -18,11 +18,14 @@ class OrdersController extends Controller
         $good->count -= $request->quantity;
         //формление
         $user_id = Auth::id();
-        if($good->count > 0)
+        if($good->count > 0 && !empty($request->address))
         {
             $order = new Orders();
             $order->name = $request->name;
+            $order->address = $request->address;
+
             $order->user_id = $user_id;
+            $order->comment = $request->comment;
             $order->goods_id = $request->goodsId;
             $order->description = $request->description;
             $order->price = $request->price;
@@ -34,7 +37,7 @@ class OrdersController extends Controller
             $cartItem = Cart::where('id',$request->id)->delete();
             return redirect()->route('cartGetShow');
         }
-        return redirect()->route('home');
+        return redirect()->route('cartGetShow');
         
     }
     public function orderGetShow()

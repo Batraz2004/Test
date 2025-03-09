@@ -30,6 +30,10 @@
                                             <input type="hidden" name="price" value="{{$item['price']}}">
                                             <input type="hidden" name="quantity" value="{{$item['quantity']}}">
                                             <input type="hidden" name="description" value="{{$item['description']}}">
+                                            <input type="text" name="comment" value="" style="width:100%" placeholder="комментарий">
+                                            <input type="text" name="address" value="" style="width:100%" placeholder="адресс">
+
+
                                         </div>
                                         <div class="button__pannel">
                                             <button type="submit" class="catalog__button" name="submit" value="complete-order-id"><p>оформить заказ</p></button>

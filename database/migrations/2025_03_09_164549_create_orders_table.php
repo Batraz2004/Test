@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+            $table->text('comment')->nullable();
+            $table->text('address');
             $table->integer('quantity');
             $table->decimal('price',8,2);
             $table->decimal('total_price',8,2);
-            $table->enum('status', ['active', 'cancelled']);
+            $table->enum('status', ['in_proccess', 'cancelled','accepted']);
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('goods_id')->constrained('goods');
             $table->string('user_name');
